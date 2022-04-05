@@ -1,10 +1,11 @@
 import express from 'express'
 import cors from 'cors'
-
+import bodyParser from 'body-parser'
 import { knex, setupDb } from './sqlite'
 
 const app = express()
 app.use(cors())
+app.use(bodyParser.json())
 
 /**
  * Test ping, this is used by the UI to determine if they are connected properly.
@@ -17,14 +18,13 @@ app.get('/ping', (_, res) => {
 app.get('/entities', (req, res) => {
   knex('entity')
     .select()
-    .then(entities => {
-      console.log(entities)
-      return res.send(entities)
-    })
+    .then(entities => res.send(entities))
 })
 
 app.post('/entity', (req, res) => {
-  // create a single entity
+  knex('entity')
+    .insert(req.body)
+    .then(id => res.send('Your entity was created successfully with ID: ' + id))
 })
 app.delete('/entity/:id', (req, res) => {
   // delete a single entity
