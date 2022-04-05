@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from 'react'
 
 import { client } from './client'
+import EntityList from './components/EntityList'
 import './styles/App.css'
 
 const App: FC = () => {
@@ -21,13 +22,7 @@ const App: FC = () => {
   return (
     <div className='app'>
       <div className='app-banner'>
-        {entities.map(({ id, name, age }, index) => (
-          <ul key={index}>
-            <li key={id}>{id}</li>
-            <li key={name}>{name}</li>
-            <li key={age}>{age}</li>
-          </ul>
-        ))}
+        <EntityList entities={entities} />
       </div>
     </div>
   )
