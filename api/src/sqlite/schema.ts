@@ -22,7 +22,7 @@ export const setupDb = async () => {
 
   // Create an SQL table that matches the Entity interface. This can be adjusted to fit your needs
   await knex.schema.createTable('entity', table => {
-    table.increments('id')
+    table.increments('id').primary()
     table.string('name')
     table.integer('age')
   })
