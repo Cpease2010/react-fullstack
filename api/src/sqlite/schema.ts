@@ -29,7 +29,7 @@ export const setupDb = async () => {
 
   // Insert the dummy seed data to have something to start with. This can also be adjusted to fit your needs
   for (const entity of entities) {
-    await knex('entities').insert(entity)
+    await knex('entity').insert(entity)
   }
 }
 
