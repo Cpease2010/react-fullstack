@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 
-import { setupDb } from './sqlite'
+import { knex, setupDb } from './sqlite'
 
 const app = express()
 app.use(cors())
@@ -14,9 +14,15 @@ app.get('/ping', (_, res) => {
   res.send('pong')
 })
 
-app.get('/entity', (req, res) => {
-  // fetch many entities
+app.get('/entities', (req, res) => {
+  knex('entity')
+    .select()
+    .then(entities => {
+      console.log(entities)
+      return res.send(entities)
+    })
 })
+
 app.post('/entity', (req, res) => {
   // create a single entity
 })
