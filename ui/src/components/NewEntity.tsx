@@ -1,13 +1,14 @@
-import React from 'react'
 import { client } from '../client'
-const handleSubmit = event => {
-  console.log({ name: event.target.name.value, age: event.target.age.value })
 
-  client
-    .post('/entity', { name: event.target.name.value, age: event.target.age.value })
-    .then(response => console.log(event.target))
-}
 const NewEntity = () => {
+  const handleSubmit = event => {
+    client.post('/entity', { name: event.target.name.value, age: event.target.age.value }).then(response => {
+      console.log(event.target)
+      console.log(response)
+    })
+    return true
+  }
+
   return (
     <form onSubmit={handleSubmit}>
       <label>

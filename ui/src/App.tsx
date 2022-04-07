@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from 'react'
-
+import { ListGroupItem } from 'react-bootstrap'
+import ListGroup from 'react-bootstrap/esm/ListGroup'
 import { client } from './client'
 import EntityList from './components/EntityList'
 import NewEntity from './components/NewEntity'
@@ -22,8 +23,10 @@ const App: FC = () => {
 
   return (
     <div className='app'>
-      <div className='app-banner'>
+      <div className='entityList'>
         <EntityList entities={entities} />
+      </div>
+      <div>
         <NewEntity />
       </div>
     </div>

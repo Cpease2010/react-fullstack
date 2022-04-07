@@ -1,13 +1,7 @@
-import React from 'react'
+import Entity from './Entity'
 
 const EntityList = ({ entities }) => {
-  return entities.map(({ id, name, age }, index) => (
-    <ul key={index}>
-      <li key={id}>{id}</li>
-      <li key={name}>{name}</li>
-      <li key={age}>{age}</li>
-    </ul>
-  ))
+  return entities.map((entity, index) => <Entity key={index} id={entity.id} name={entity.name} age={entity.age} />)
 }
 
 export default EntityList
