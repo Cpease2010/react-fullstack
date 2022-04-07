@@ -26,11 +26,16 @@ app.post('/entity', (req, res) => {
     .insert(req.body)
     .then(id => res.send('Your entity was created successfully with ID: ' + id))
 })
-app.delete('/entity/:id', (req, res) => {
-  // delete a single entity
+app.delete('/entity/:id', (req, res) => {  
+  knex('entity')
+    .where(req.params)
+    .del()
+    .then(() => res.send(`Record with ID ${req.params.id} was sucessfully removed.`))
 })
 app.get('/entity/:id', (req, res) => {
-  // fetch a single entity
+  knex('entity')
+    .where(req.params)
+    .then(entity => entity.length > 0 ? res.send(entity) : res.status(404).send({message: `No entity found with ID: ${req.params.id}`}))
 })
 
 app.listen(5010, async () => {

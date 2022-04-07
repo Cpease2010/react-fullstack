@@ -36,11 +36,11 @@ You may also change the URL path to fit whatever meets your needs. We just want 
 
 ### Get an entity
 
-- [ ] A GET request to `/entity/:id` returns the given entity, or a 404 status code if that entity does not exist.
+- [X] A GET request to `/entity/:id` returns the given entity, or a 404 status code if that entity does not exist.
 
 ### Creating an Entity
 
-- [ ] A POST request to `/entity` creates a new entity
+- [X] A POST request to `/entity` creates a new entity
 
 #### Bonus
 
@@ -49,12 +49,12 @@ You may also change the URL path to fit whatever meets your needs. We just want 
 
 ### Delete an entity
 
-- [ ] A DELETE request to `/entity/:id` deletes the given entity, or a 404 status code if that entity does not exist.
-- [ ] A 200 status code, with a message of 'ok' or something similar is returned upon successful deletion.
+- [X] A DELETE request to `/entity/:id` deletes the given entity, or a 404 status code if that entity does not exist.
+- [X] A 200 status code, with a message of 'ok' or something similar is returned upon successful deletion.
 
 ### Search an entity
 
-- [ ] A GET request to `/entity` ( or whatever the plural version of your entity is ) returns a list of entities.
+- [?] A GET request to `/entity` ( or whatever the plural version of your entity is ) returns a list of entities.
 
 #### Bonus
 
