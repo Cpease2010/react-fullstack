@@ -35,7 +35,7 @@ Here is what we are looking for, and how your submission will be graded.
 <!-- Change to no need for Router - be ambiguous -->
 
 - [ ] Clicking on an entity in the list navigates to a more detailed view of that specific entity.
-- [] This page should show all the attributes of the entity. 
+- [X] This page should show all the attributes of the entity. 
 - [ ] **There needs to be at least one extra attribute shown on this page that is not shown on the list page.**
 - [ ] Pasting a URL into the browser with the ID of the entity should show the entity detailed view.
   - For example, localhost:3000/123 would show the details for item `123`. You can make this URL whatever you wish, as long as pasting the URL into a new tab or window loads the correct page.

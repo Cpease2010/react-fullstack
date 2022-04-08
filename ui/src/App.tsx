@@ -1,10 +1,9 @@
 import { FC, useEffect, useState } from 'react'
-import { ListGroupItem } from 'react-bootstrap'
-import ListGroup from 'react-bootstrap/esm/ListGroup'
 import { client } from './client'
-import EntityList from './components/EntityList'
-import NewEntity from './components/NewEntity'
+import EntityDetails from './pages/EntityDetails'
+import Home from './pages/Home'
 import './styles/App.css'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
 const App: FC = () => {
   const [entities, setEntities] = useState([])
@@ -22,14 +21,21 @@ const App: FC = () => {
   }, [])
 
   return (
-    <div className='app'>
-      <div className='entityList'>
-        <EntityList entities={entities} />
-      </div>
-      <div>
-        <NewEntity />
-      </div>
-    </div>
+    <>
+      <Router>
+        <div className='nav'>
+          <ul>
+            <li>
+              <Link to='/'>Home</Link>
+            </li>
+          </ul>
+          <Routes>
+            <Route path='/entity/:id' element={<EntityDetails />} />
+            <Route path='/' element={<Home entities={entities} />} />
+          </Routes>
+        </div>
+      </Router>
+    </>
   )
 }
 export default App
