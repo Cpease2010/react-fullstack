@@ -6,6 +6,7 @@ import { knex, setupDb } from './sqlite'
 const app = express()
 app.use(cors())
 app.use(bodyParser.json())
+function sortData (data, sortField) { data.sort((a, b) => {console.log({a: a[sortField], b: b[sortField]}); return a[sortField] - b[sortField]}); return data}
 
 /**
  * Test ping, this is used by the UI to determine if they are connected properly.
@@ -16,9 +17,24 @@ app.get('/ping', (_, res) => {
 })
 
 app.get('/entities', (req, res) => {
+  const limit = req.query.limit || 10
+  const offset = req.query.offset || 0
+  const sortField = req.query.sort_field || 'id'
+  const sortOrder = req.query.sort_order || 'desc'
+
   knex('entity')
     .select()
-    .then(entities => res.send(entities))
+    .limit(Number(limit))
+    .offset(Number(offset))
+    .orderBy(String(sortField), String(sortOrder))
+    .then(data =>  sortData(data, sortField))
+    .then(entities => res.send(entities)) 
+})
+
+app.get('/entity/:id', (req, res) => {
+  knex('entity')
+    .where(req.params)
+    .then(entity => entity.length > 0 ? res.send(entity) : res.status(404).send({message: `No entity found with ID: ${req.params.id}`}))
 })
 
 app.post('/entity', (req, res) => {
@@ -31,11 +47,6 @@ app.delete('/entity/:id', (req, res) => {
     .where(req.params)
     .del()
     .then(() => res.send(`Record with ID ${req.params.id} was sucessfully removed.`))
-})
-app.get('/entity/:id', (req, res) => {
-  knex('entity')
-    .where(req.params)
-    .then(entity => entity.length > 0 ? res.send(entity) : res.status(404).send({message: `No entity found with ID: ${req.params.id}`}))
 })
 
 app.listen(5010, async () => {
