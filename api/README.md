@@ -9,6 +9,16 @@ We have provided a starter [Express](https://expressjs.com/) powered API, using 
 
 Using `npm run start` with start the server, but will not restart the server when changed are made
 
+## Endpoints
+- GET `/ping` => Returns `pong` to signifiy app health
+- GET `/entities` => Returns list of entities
+    - `?limit` = how many results to returned
+    - `?offset` = at what index to start retruning entities
+    - `?sort_field` = what entitiy field to sort by
+    - `?sortOrfer` = `desc` || `asc`
+- GET `/entitiy/:id` => return the entity matching the `:id`
+- POST `/entitiy` => creates a new entity
+- DELETE `/entity/:id` => deletes entity matching `:id`
 ## Highlights
 
 - You **DO NOT** need to complete this in TypeScript. Everything is setup properly so you can start using JS if you'd prefer.
