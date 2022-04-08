@@ -1,10 +1,7 @@
-import { Card, Button } from 'react-bootstrap'
-import { client } from '../client'
+import { Card } from 'react-bootstrap'
 
 const Entity = props => {
-  const name = props.entity.name
-  const age = props.entity.age
-  const id = props.entity.id
+  const { id, name, age } = props.entity
 
   return (
     <Card style={{ width: '18rem', margin: 'auto' }}>

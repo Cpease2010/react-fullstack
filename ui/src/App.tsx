@@ -11,8 +11,7 @@ const App: FC = () => {
   useEffect(() => {
     const getEntities = async () => {
       try {
-        const result = await client.get('/entities')
-        setEntities(result.data)
+        await client.get('/entities').then(result => setEntities(result.data))
       } catch (e) {
         setEntities([])
       }
@@ -30,7 +29,7 @@ const App: FC = () => {
             </li>
           </ul>
           <Routes>
-            <Route path='/entity/:id' element={<EntityDetails />} />
+            <Route path='/entity/:id' element={<EntityDetails entities={entities} />} />
             <Route path='/' element={<Home entities={entities} />} />
           </Routes>
         </div>

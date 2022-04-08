@@ -3,10 +3,8 @@ import { client } from '../client'
 const NewEntity = () => {
   const handleSubmit = event => {
     client.post('/entity', { name: event.target.name.value, age: event.target.age.value }).then(response => {
-      console.log(event.target)
-      console.log(response)
+      alert(response.data)
     })
-    return true
   }
 
   return (

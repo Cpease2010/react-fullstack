@@ -26,7 +26,7 @@ Here is what we are looking for, and how your submission will be graded.
 #### Bonus
 
 - [ ] Provide a way to add the filters mentioned [here](../api/README.md#search-an-entity).
-- [ ] If the user has loaded this page once, an additional network call is not made if the user navigates back to this page
+- [X] If the user has loaded this page once, an additional network call is not made if the user navigates back to this page
   - If something has changed, another network call may be necessary. This refers to a user going to a detailed view, then coming immediately back to the list page. If nothing has changed, do not make another network call.
 - [ ] Provide a way to sort the information based on the various data fields
 
@@ -34,13 +34,13 @@ Here is what we are looking for, and how your submission will be graded.
 
 <!-- Change to no need for Router - be ambiguous -->
 
-- [ ] Clicking on an entity in the list navigates to a more detailed view of that specific entity.
+- [X] Clicking on an entity in the list navigates to a more detailed view of that specific entity.
 - [X] This page should show all the attributes of the entity. 
-- [ ] **There needs to be at least one extra attribute shown on this page that is not shown on the list page.**
-- [ ] Pasting a URL into the browser with the ID of the entity should show the entity detailed view.
+- [X] **There needs to be at least one extra attribute shown on this page that is not shown on the list page.**
+- [X] Pasting a URL into the browser with the ID of the entity should show the entity detailed view.
   - For example, localhost:3000/123 would show the details for item `123`. You can make this URL whatever you wish, as long as pasting the URL into a new tab or window loads the correct page.
-- [ ] If the provided ID does not exist, a message should be shown saying as much, with an option to go back to the main list page.
-- [ ] Provide a way to get back to the list page without using the browser controls.
+- [X] If the provided ID does not exist, a message should be shown saying as much, with an option to go back to the main list page.
+- [X] Provide a way to get back to the list page without using the browser controls.
 
 ### Deleting an entity
 
