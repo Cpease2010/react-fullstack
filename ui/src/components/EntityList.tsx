@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Button, ListGroup } from 'react-bootstrap'
 import { client } from '../client'
 import Entity from './Entity'
+import '../styles/App.css'
 
 const EntityList = ({ entities }) => {
   const [showDetails, setShowDetails] = useState({})
@@ -13,21 +14,20 @@ const EntityList = ({ entities }) => {
 
   const deleteEntity = id => {
     console.log(`This is the ID: ${id}`)
-    client.delete(`/entity/${id}`).then(respone => {
-      console.log({ respone: respone })
+    client.delete(`/entity/${id}`).then(response => {
+      alert(response.data)
       window.location.reload()
     })
   }
 
   return (
-    <ListGroup>
+    <ListGroup className='entityList'>
       {entities.map((entity, index) => {
         return (
           <ListGroup.Item key={index}>
             {showDetails[index] ? (
               <>
                 <Button
-                  variant='primary'
                   onClick={() => {
                     deleteEntity(entity.id)
                   }}

@@ -4,9 +4,9 @@ import NewEntity from '../components/NewEntity'
 const Home = ({ entities }) => {
   return (
     <>
-      <div className='app'>
-        <EntityList entities={entities} />
+      <div>
         <NewEntity />
+        <EntityList entities={entities} />
       </div>
     </>
   )

@@ -15,7 +15,7 @@ const NewEntity = () => {
       <label>
         Age: <input type='text' name='age'></input>
       </label>
-      <input type='submit' value='Submit'></input>
+      <input type='submit' value='Add Entity'></input>
     </form>
   )
 }
