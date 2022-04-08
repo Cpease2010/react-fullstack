@@ -61,11 +61,11 @@ You may also change the URL path to fit whatever meets your needs. We just want 
 
 As a bonus, allow a set of JSON API standard query arguments to be applied on the request to filter, sort, and limit the entities being returned.
 
-- [ ] `page[limit]` :arrow_left: limit the number of entities returned
-- [ ] `page[offset]` :arrow_left: jump ahead by `limit` `offset` number of times
+- [X] `page[limit]` :arrow_left: limit the number of entities returned
+- [X] `page[offset]` :arrow_left: jump ahead by `limit` `offset` number of times
   - `limit = 10`, `offset = 20`, return entity 20-30
-- [ ] `page[sort]` :arrow_left: attribute to sort by
-- [ ] `page[order]` :arrow_left: ascending or descending order
+- [X] `page[sort]` :arrow_left: attribute to sort by
+- [X] `page[order]` :arrow_left: ascending or descending order
 - [ ] `filter[SOMETHING_YOU_WANT_TO_FILTER]`
   - Optional, if you'd like to filter based on some attribute in the entity.
 
