@@ -77,8 +77,8 @@ This refers to the naming of variables, function calls, etc. Basically looking f
 
 There is an existing ESLint config / Prettier config. It's really helpful to not have to sort through formatting changes during PR's. It's sometimes confusing to see a large change that isn't actually a code change while reviewing a PR. We use both ESLint and Prettier mainly to stay all on the same page, and to not have to think about formatting in a manual way.
 
-- [ ] ESLint passes
-- [ ] Prettier passes
+- [X] ESLint passes
+- [X] Prettier passes
 
 ### Types
 
